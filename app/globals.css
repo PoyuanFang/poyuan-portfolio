@@ -10,6 +10,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-custom-black: #010101;
+  --color-custom-white: #fff;
+  --color-custom-gray: #666;
+  --color-custom-border: #d8d8d8;
+  --color-custom-navy: #192455;
+  --color-custom-orange: #f04933;
+  --color-custom-blue: #0077c3;
+  --color-custom-sky: #20aee5;
+  --color-hero-bg: #d1cfd4;
+  --color-package-bg: #dddcdf;
+  --color-products-bg: #e3e4e6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +35,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  /* Adjust transparency for grain intensity */
+  background-image: url("/image/noise_bg.jpg");
 }
