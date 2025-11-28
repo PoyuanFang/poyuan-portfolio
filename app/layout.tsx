@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "./components/Layout/Navbar";
 import { Footer } from "./components/Layout/Footer";
+import { BackToTopButton } from "./components/Layout/BackToTopButton";
 
 export const metadata: Metadata = {
   title: "Poyuan",
@@ -20,6 +21,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <BackToTopButton />
         </div>
       </body>
     </html>
