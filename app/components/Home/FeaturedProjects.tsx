@@ -62,12 +62,12 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
 
   return (
     <section id="work" ref={containerRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-products-bg text-custom-black">
-      <div className="flex justify-between items-end mb-24 border-b border-custom-black/10 pb-6">
+      <div className="flex justify-between items-end mb-10 border-b border-custom-black/10 pb-6">
         <h2 className="text-3xl md:text-5xl font-serif">專案作品</h2>
         <span className="hidden md:block text-xs font-mono text-custom-gray">(Featured Projects)</span>
       </div>
 
-      <div className="flex flex-col gap-32">
+      <div className="flex flex-col gap-20">
         {projects.map((project, index) => (
           <div
             key={project._id}
@@ -102,7 +102,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
         ))}
       </div>
 
-      <div className="mt-32 flex justify-center">
+      <div className="mt-20 flex justify-center">
         <button
           onClick={() => router.push('/project')}
           className="px-8 py-4 border border-custom-black/20 rounded-full text-xs tracking-widest hover:bg-custom-black hover:text-white transition-all duration-300 interactive"
