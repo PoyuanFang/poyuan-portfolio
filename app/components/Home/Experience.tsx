@@ -53,7 +53,7 @@ export const Experience: React.FC = () => {
   }, []);
 
   return (
-    <section id="expertise" ref={sectionRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-custom-black text-white">
+    <section id="experience" ref={sectionRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-custom-black text-white">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
         <h2 className="text-3xl md:text-5xl font-serif text-white">個人經歷</h2>
         <span className="text-xs text-custom-orange tracking-widest uppercase mt-4 md:mt-0 font-medium">Experience & Education</span>

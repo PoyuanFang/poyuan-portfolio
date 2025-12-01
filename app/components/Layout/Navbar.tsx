@@ -6,7 +6,7 @@ import gsap from 'gsap';
 
 const NAV_ITEMS = [
   { label: 'ABOUT', targetId: 'about' },
-  { label: 'EXPERTISE', targetId: 'expertise' },
+  { label: 'EXPERIENCE', targetId: 'experience' },
   { label: 'WORK', targetId: 'work' },
   { label: 'SKILLS', targetId: 'skills' },
 ];
