@@ -1,9 +1,8 @@
 'use client'
 
 import React from 'react'
-
-import { FeaturedProjects } from '@/components/Home/FeaturedProjects';
 import { CustomCursor } from '@/components/Home/CustomCursor';
+import { AllProjects } from '@/components/Projects/AllProjects';
 
 
 export default function project() {
@@ -21,7 +20,7 @@ export default function project() {
       <CustomCursor />
 
       <main className="relative w-full z-10">
-        <FeaturedProjects />
+        <AllProjects />
       </main>
     </div>
   )

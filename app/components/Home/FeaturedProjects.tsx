@@ -6,36 +6,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import { ArrowUpRight } from 'lucide-react';
 
-import { FaLocationArrow } from "react-icons/fa";
-
-const projects = [
-  {
-    id: 1,
-    title: "INTERACTIVE PSYCH TEST",
-    category: "Brand Campaign / Next.js",
-    image: "https://picsum.photos/id/42/1200/800",
-    description: "Developed a branded interactive psychological test website. Increased user engagement through smooth animations and seamless frontend logic."
-  },
-  {
-    id: 2,
-    title: "TRAVEL AGENCY PORTAL",
-    category: "Web Optimization / Maintenance",
-    image: "https://picsum.photos/id/28/1200/800",
-    description: "Maintained and optimized the official website for a travel agency, ensuring high performance and implementing new feature requests."
-  },
-  {
-    id: 3,
-    title: "ONLINE LEARNING SYSTEM",
-    category: "React / Full Stack Project",
-    image: "https://picsum.photos/id/20/1200/800",
-    description: "A comprehensive course platform built with React. Features student management, course playback, and a robust backend integration."
-  }
-];
+import { FaArrowRight } from "react-icons/fa";
+import { projects } from '@/data/projects';
 
 export const FeaturedProjects: React.FC = () => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const featuredProjects = projects.filter(p => p.featured);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -86,7 +64,7 @@ export const FeaturedProjects: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-32">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <div
             key={project.id}
             ref={el => { projectRefs.current[index] = el; }}
@@ -108,9 +86,11 @@ export const FeaturedProjects: React.FC = () => {
               <p className="text-custom-gray text-sm leading-relaxed max-w-sm">
                 {project.description}
               </p>
-              <button className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
-                View Project
-                <FaLocationArrow />
+              <button
+                onClick={() => router.push(`/project/${project.id}`)}
+                className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
+                View Details
+                <FaArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
                 {/* <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /> */}
               </button>
             </div>
