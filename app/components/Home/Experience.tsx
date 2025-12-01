@@ -72,7 +72,7 @@ export const Experience: React.FC = () => {
           <div
             key={index}
             ref={el => { rowsRef.current[index] = el; }}
-            className="group relative grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-8 items-center interactive cursor-default transition-colors duration-300"
+            className="group relative grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-8 items-center cursor-default transition-colors duration-300"
           >
             {/* Animated Separator Line */}
             <div className="separator absolute top-0 left-0 w-full h-[1px] bg-custom-border/20 group-hover:bg-custom-orange transition-colors duration-300"></div>

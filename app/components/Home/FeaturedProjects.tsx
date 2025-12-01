@@ -90,7 +90,7 @@ export const FeaturedProjects: React.FC = () => {
           <div
             key={project.id}
             ref={el => { projectRefs.current[index] = el; }}
-            className="group flex flex-col md:flex-row gap-10 lg:gap-20 items-center md:even:flex-row-reverse interactive"
+            className="group flex flex-col md:flex-row gap-10 lg:gap-20 items-center md:even:flex-row-reverse"
           >
             {/* Image Container */}
             <div className="w-full md:w-3/5 aspect-[16/10] overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-out border border-custom-black/5 shadow-lg">
@@ -108,7 +108,7 @@ export const FeaturedProjects: React.FC = () => {
               <p className="text-custom-gray text-sm leading-relaxed max-w-sm">
                 {project.description}
               </p>
-              <button className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn">
+              <button className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
                 View Project
                 <FaLocationArrow />
                 {/* <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /> */}
