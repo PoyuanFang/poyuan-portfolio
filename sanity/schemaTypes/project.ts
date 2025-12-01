@@ -34,19 +34,9 @@ export default defineType({
       type: 'text',
     }),
     defineField({
-      name: 'link',
-      title: '專案連結',
-      type: 'url',
-    }),
-    defineField({
       name: 'category',
       title: '專案類別',
       type: 'string',
-    }),
-    defineField({
-      name: 'skills',
-      title: '使用技術',
-      type: 'text',
     }),
     defineField({
       name: 'galleryImages',

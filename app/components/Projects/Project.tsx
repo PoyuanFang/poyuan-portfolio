@@ -66,7 +66,7 @@ export default function Project({ project }: { project: Project }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-6">
               <h2 className="text-2xl font-serif">關於專案</h2>
-              <p className="text-custom-gray leading-relaxed whitespace-pre-line">{project.description}</p>
+              <p className="text-custom-gray leading-relaxed whitespace-pre-line">{project.longDescription ? project.longDescription : project.description}</p>
             </div>
             <div className="space-y-6">
               <h2 className="text-2xl font-serif">使用技術</h2>
@@ -74,8 +74,8 @@ export default function Project({ project }: { project: Project }) {
                 {project.techStack?.map(tech => <li key={tech} className="text-custom-gray">{tech}</li>)}
               </ul>
               <div className="flex items-center gap-4 pt-4">
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">Live Site <FaExternalLinkAlt /></a>
-                <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">GitHub <FaGithub /></a>
+                {project.liveUrl && (<a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">URL<FaExternalLinkAlt /></a>)}
+                {project.repoUrl && (<a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">GitHub <FaGithub /></a>)}
               </div>
             </div>
           </div>

@@ -42,7 +42,7 @@ const ProjectImageCarousel: React.FC<PropType> = (props) => {
           {slides.map((src, index) => (
             <div className="flex-grow-0 flex-shrink-0 w-full aspect-[16/9]" key={index}>
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 src={src}
                 alt={`Project image ${index + 1}`}
               />

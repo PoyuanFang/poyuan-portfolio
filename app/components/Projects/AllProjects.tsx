@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { CustomCursor } from '@/components/Home/CustomCursor'
 import { FaArrowRight } from "react-icons/fa";
 import { urlFor } from '../../../sanity/client';
 
@@ -13,7 +14,7 @@ interface Project {
   image: any
   description: string
   link: string
-  skills: string
+  category: string
 }
 
 interface ProjectListProps {
@@ -54,11 +55,15 @@ export const AllProjects: React.FC<ProjectListProps> = ({ projects }) => {
 
   return (
     <section ref={containerRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-products-bg text-custom-black">
+      <div className="noise-overlay" />
+
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 text-center">
           <h1 className="text-4xl md:text-6xl font-serif mb-4">所有專案</h1>
           <p className="text-custom-gray text-sm">(All Projects)</p>
         </div>
+
+        <CustomCursor />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
           {projects.map((project, index) => (
@@ -81,7 +86,7 @@ export const AllProjects: React.FC<ProjectListProps> = ({ projects }) => {
 
               {/* Info */}
               <div className="flex flex-col items-start space-y-2">
-                <span className="text-custom-blue text-xs tracking-widest uppercase font-medium">{project.skills}</span>
+                <span className="text-custom-blue text-xs tracking-widest uppercase font-medium">{project.category}</span>
                 <h3 className="text-2xl font-serif leading-none">{project.title}</h3>
                 <p className="text-custom-gray text-sm leading-relaxed">{project.description}</p>
               </div>
