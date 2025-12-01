@@ -6,9 +6,11 @@ interface Project {
   _id: string
   title: string
   image: any
-  description: string
-  link: string
-  skills: string
+  description: string // Add description
+  longDescription: string // Add longDescription
+  link: string // Add link
+  skills: string // Add skills
+  category: string // Add category
 }
 
 // 將頁面元件改為 async function，這樣我們就可以在伺服器端使用 await
