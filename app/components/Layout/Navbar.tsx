@@ -81,7 +81,7 @@ export const Navbar: React.FC = () => {
     <>
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-12 py-6 z-[60] text-custom-white md:text-white bg-black/60 md:bg-transparent md:mix-blend-difference backdrop-blur-lg border-b border-black/10"
+        className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-12 py-6 z-[60] text-custom-white md:text-white bg-custom-gray/50 md:bg-transparent md:mix-blend-difference backdrop-blur-lg"
       >
         <div
           ref={logoRef}
