@@ -7,18 +7,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import { ArrowUpRight } from 'lucide-react';
 
 import { FaArrowRight } from "react-icons/fa";
-import { projects } from '@/data/projects';
+import { urlFor } from '../../../sanity/client';
+import { Project } from '../../../type/project'; // 引入共享介面
 
-export const FeaturedProjects: React.FC = () => {
+interface FeaturedProjectsProps {
+  projects: Project[];
+}
+
+export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const featuredProjects = projects.filter(p => p.featured);
 
+  // 將 useEffect 移到這裡，確保在 props 改變時重新執行動畫
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-
       projectRefs.current.forEach((el, index) => {
         if (!el) return;
         const img = el.querySelector('img');
@@ -50,11 +54,11 @@ export const FeaturedProjects: React.FC = () => {
           )
         });
       });
-
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [projects]); // 依賴 projects 確保在資料更新時重新綁定動畫
+
 
   return (
     <section id="work" ref={containerRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-products-bg text-custom-black">
@@ -64,16 +68,16 @@ export const FeaturedProjects: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-32">
-        {featuredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <div
-            key={project.id}
+            key={project._id}
             ref={el => { projectRefs.current[index] = el; }}
             className="group flex flex-col md:flex-row gap-10 lg:gap-20 items-center md:even:flex-row-reverse"
           >
             {/* Image Container */}
             <div className="w-full md:w-3/5 aspect-[16/10] overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-out border border-custom-black/5 shadow-lg">
               <img
-                src={project.image}
+                src={urlFor(project.image).width(800).url()}
                 alt={project.title}
                 className="w-full h-full object-cover will-change-transform"
               />
@@ -87,7 +91,7 @@ export const FeaturedProjects: React.FC = () => {
                 {project.description}
               </p>
               <button
-                onClick={() => router.push(`/project/${project.id}`)}
+                onClick={() => router.push(`/project/${project._id}`)}
                 className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
                 View Details
                 <FaArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
