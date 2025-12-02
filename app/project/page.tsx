@@ -6,21 +6,26 @@ interface Project {
   _id: string
   title: string
   image: any
-  description: string // Add description
-  longDescription: string // Add longDescription
-  link: string // Add link
-  skills: string // Add skills
-  category: string // Add category
+  description: string
+  longDescription: string
+  link: string
+  skills: string
+  category: string
 }
 
-// 將頁面元件改為 async function，這樣我們就可以在伺服器端使用 await
+// 將頁面元件改為 async function，在伺服器端使用 await
 export default async function ProjectPage() {
-  // 1. 編寫 GROQ 查詢語句，來獲取所有類型為 "project" 的文件
-  const query = `*[_type == "project"] | order(_createdAt desc)`
+  // 1. 編寫一個 GROQ 查詢，同時獲取 projects
+  const query = `{
+    "projects": *[_type == "project"] | order(orderRank),
+    }`
+  // 之後可以在這裡加入其他資料查詢
 
   // 2. 使用 client.fetch 來執行查詢
-  const projects = await client.fetch<Project[]>(query)
+  //    回傳的資料結構會是 { projects: Project[]}
+  const { projects } = await client.fetch<{
+    projects: Project[]
+  }>(query)
 
-  // 3. 將獲取到的資料作為 props 傳遞給客戶端元件
   return <AllProjects projects={projects} />
 }
