@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar } from "./components/Layout/Navbar";
-import { Footer } from "./components/Layout/Footer";
+import { Layout } from "./components/Layout/Layout";
 import { BackToTopButton } from "./components/Layout/BackToTopButton";
 
 export const metadata: Metadata = {
@@ -17,12 +16,10 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <body>
-        <div className="main-container">
-          <Navbar />
+        <Layout>
           {children}
-          <Footer />
-          <BackToTopButton />
-        </div>
+        </Layout>
+        <BackToTopButton />
       </body>
     </html>
   );

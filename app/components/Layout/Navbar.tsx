@@ -71,10 +71,7 @@ export const Navbar: React.FC = () => {
 
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false); // Close mobile menu if open
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    router.push(`/#${id}`);
   };
 
   return (
