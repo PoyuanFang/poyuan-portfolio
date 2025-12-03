@@ -5,21 +5,23 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Hero } from './Hero'
 import { About } from './About'
-import { Experience } from './Experience'
+import { ExperienceComponent } from './Experience'
 import { FeaturedProjects } from './FeaturedProjects'
 import { Contact } from './Contact'
 import { CustomCursor } from './CustomCursor'
 import { Project } from '../../../type/project'
+import { Experience } from '../../../type/experience'
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
 
 interface HomePageContentProps {
-  projects: Project[]
+  projects: Project[],
+  experience: Experience[]
 }
 
 export const HomePageContent: React.FC<HomePageContentProps> = ({
-  projects,
+  projects, experience
 }) => {
   return (
     <div className="w-full relative min-h-screen text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
@@ -35,7 +37,7 @@ export const HomePageContent: React.FC<HomePageContentProps> = ({
       <main className="relative w-full z-10">
         <Hero />
         <About />
-        <Experience />
+        <ExperienceComponent experience={experience} />
         <FeaturedProjects projects={projects} />
         <Contact />
       </main>

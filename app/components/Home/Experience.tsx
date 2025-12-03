@@ -1,56 +1,65 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Experience } from '../../../type/experience';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { IoIosArrowDown } from "react-icons/io";
+interface ExperienceComponentProps {
+  experience: Experience[];
+}
 
-const history = [
-  { year: '2024', role: '前端實習工程師', company: '綠擊掌數位' },
-  { year: '2023', role: '前端工程師培訓養成班', company: 'ISPAN 資展國際' },
-  { year: '2022 - 2023', role: '品保工程師', company: '鑫惟科技' },
-  { year: '2021 - 2022', role: '活動企劃', company: '銓蔚整合行銷' },
-  { year: '2018 - 2020', role: '美編企劃工讀', company: '台灣芝寶' },
-  { year: '2016 - 2020', role: '資訊傳播學士', company: '淡江大學' },
-];
-
-export const Experience: React.FC = () => {
+export const ExperienceComponent: React.FC<ExperienceComponentProps> = ({ experience }) => {
   const sectionRef = useRef<HTMLElement>(null);
-  const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      rowsRef.current.forEach((row, index) => {
-        if (!row) return;
-
-        const line = row.querySelector('.separator');
-        const textItems = row.querySelectorAll('.text-reveal');
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: row,
-            start: "top 85%",
-            end: "bottom center",
-            toggleActions: "play none none reverse"
+      itemRefs.current.forEach((item) => {
+        if (!item) return;
+        gsap.fromTo(item,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
           }
-        });
-
-        // Animate line width
-        tl.fromTo(line,
-          { scaleX: 0, transformOrigin: "left center" },
-          { scaleX: 1, duration: 1, ease: "expo.out" }
-        );
-
-        // Animate text elements
-        tl.fromTo(textItems,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power2.out" },
-          "-=0.6"
         );
       });
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
+
+  const handleToggle = (index: number) => {
+    const newActiveIndex = activeIndex === index ? null : index;
+
+    // Close the currently open item
+    if (activeIndex !== null) {
+      const content = itemRefs.current[activeIndex]?.querySelector('.accordion-content');
+      if (content) {
+        gsap.to(content, { height: 0, duration: 0.4, ease: 'power2.inOut' });
+      }
+    }
+
+    // Open the new item
+    if (newActiveIndex !== null) {
+      const content = itemRefs.current[newActiveIndex]?.querySelector('.accordion-content');
+      if (content) {
+        gsap.to(content, { height: 'auto', duration: 0.6, ease: 'expo.out' });
+      }
+    }
+
+    setActiveIndex(newActiveIndex);
+  };
 
   return (
     <section id="experience" ref={sectionRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-custom-black text-white">
@@ -59,40 +68,38 @@ export const Experience: React.FC = () => {
         <span className="text-xs text-custom-orange tracking-widest uppercase mt-4 md:mt-0 font-medium">Experience & Education</span>
       </div>
 
-      <div className="flex flex-col">
-        {/* Header Row */}
-        <div className="hidden md:grid grid-cols-12 gap-4 pb-4 text-xs tracking-widest text-custom-gray uppercase border-b border-custom-border/20 mb-8">
-          <div className="col-span-3">Year</div>
-          <div className="col-span-5">Role</div>
-          <div className="col-span-4 text-right">Company</div>
-        </div>
-
-        {/* Data Rows */}
-        {history.map((item, index) => (
+      <div className="flex flex-col border-t border-custom-border/20">
+        {experience.map((item, index) => (
           <div
             key={index}
-            ref={el => { rowsRef.current[index] = el; }}
-            className="group relative grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-8 items-center cursor-default transition-colors duration-300"
+            ref={el => { itemRefs.current[index] = el; }}
+            className="accordion-item border-b border-custom-border/20 group"
           >
-            {/* Animated Separator Line */}
-            <div className="separator absolute top-0 left-0 w-full h-[1px] bg-custom-border/20 group-hover:bg-custom-orange transition-colors duration-300"></div>
-
-            <div className="col-span-3 text-sm md:text-base text-custom-gray group-hover:text-custom-orange transition-colors duration-300 font-mono overflow-hidden">
-              <div className="text-reveal">{item.year}</div>
-            </div>
-
-            <div className="col-span-5 text-xl md:text-2xl font-serif overflow-hidden">
-              <div className="text-reveal">{item.role}</div>
-            </div>
-
-            <div className="col-span-4 text-left md:text-right text-xs md:text-sm tracking-widest text-custom-gray group-hover:text-white transition-colors duration-300 overflow-hidden">
-              <div className="text-reveal">{item.company}</div>
+            <button
+              onClick={() => handleToggle(index)}
+              className="w-full flex justify-between items-center py-8 text-left gap-4 interactive"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 w-full items-center">
+                <div className="col-span-3 text-sm md:text-base text-custom-gray group-hover:text-custom-orange transition-colors duration-300 font-mono">{item.year}</div>
+                <div className="col-span-5 text-xl md:text-2xl font-serif group-hover:text-white transition-colors duration-300">{item.role}</div>
+                <div className="col-span-4 text-left md:text-right text-xs md:text-sm tracking-widest text-custom-gray group-hover:text-white transition-colors duration-300">{item.company}</div>
+              </div>
+              <div className="flex-shrink-0 text-custom-gray group-hover:text-custom-orange transition-colors duration-300">
+                <IoIosArrowDown
+                  size={20}
+                  className={`transition-transform duration-500 ease-out ${activeIndex === index ? 'rotate-180' : ''}`}
+                />
+              </div>
+            </button>
+            <div className="accordion-content h-0 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 w-full">
+                <div className="md:col-start-4 md:col-span-9 pb-8 text-custom-white/70 text-sm leading-relaxed">
+                  {item.description}
+                </div>
+              </div>
             </div>
           </div>
         ))}
-
-        {/* Bottom Line */}
-        <div className="w-full h-[1px] bg-custom-border/20"></div>
       </div>
     </section>
   );
