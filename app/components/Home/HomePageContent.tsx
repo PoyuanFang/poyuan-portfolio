@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Hero } from './Hero'
@@ -9,7 +9,6 @@ import { Experience } from './Experience'
 import { FeaturedProjects } from './FeaturedProjects'
 import { Contact } from './Contact'
 import { CustomCursor } from './CustomCursor'
-import { Loader } from '../Loader'
 import { Project } from '../../../type/project'
 
 // Register ScrollTrigger
@@ -22,17 +21,6 @@ interface HomePageContentProps {
 export const HomePageContent: React.FC<HomePageContentProps> = ({
   projects,
 }) => {
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    // Simulate asset loading time for the loader animation
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2500)
-
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <div className="relative min-h-screen text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
       {/* Global Grain Texture */}
@@ -46,17 +34,13 @@ export const HomePageContent: React.FC<HomePageContentProps> = ({
 
       <CustomCursor />
 
-      {isLoading ? (
-        <Loader onComplete={() => setIsLoading(false)} />
-      ) : (
-        <main className="relative w-full z-10">
-          <Hero />
-          <About />
-          <Experience />
-          <FeaturedProjects projects={projects} />
-          <Contact />
-        </main>
-      )}
+      <main className="relative w-full z-10">
+        <Hero />
+        <About />
+        <Experience />
+        <FeaturedProjects projects={projects} />
+        <Contact />
+      </main>
     </div>
   )
 }

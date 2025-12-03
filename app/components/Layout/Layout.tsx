@@ -18,7 +18,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main className="flex-1 flex">{children}</main>
       <Footer />
     </>
   )

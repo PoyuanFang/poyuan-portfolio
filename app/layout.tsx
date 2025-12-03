@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-TW">
-      <body>
+      <body className="min-h-screen flex flex-col">
         <Layout>
           {children}
         </Layout>
