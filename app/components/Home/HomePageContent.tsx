@@ -22,7 +22,7 @@ export const HomePageContent: React.FC<HomePageContentProps> = ({
   projects,
 }) => {
   return (
-    <div className="relative min-h-screen text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
+    <div className="w-full relative min-h-screen text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
 
       {/* Ambient Background Light (Fixed behind content) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

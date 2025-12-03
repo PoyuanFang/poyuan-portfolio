@@ -4,6 +4,10 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 
+import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
+import { FaInstagram } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
+
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleLine1Ref = useRef<HTMLHeadingElement>(null);
@@ -81,20 +85,30 @@ export const Hero: React.FC = () => {
             Portfolio
           </h1>
         </div>
-
-        <div className="mt-12 flex items-start gap-6 max-w-xl mx-auto p-4 rounded-lg">
-          <div className="w-12 h-[1px] bg-custom-orange mt-3 hidden md:block"></div>
-          <p ref={subtitleRef} className="text-sm md:text-base font-light tracking-wide text-custom-black md:text-custom-white leading-relaxed">
-            Hi! 我是柏元<br />
-            我喜歡接收新的知識，也願意投入學習，現階段目標轉職成前端工程師，未來會朝全端工程師邁進。</p>
+        <div className="w-full mt-5 flex justify-end gap-3">
+          <div className="flex items-center gap-1">
+            <a href="https://github.com/PoyuanFang/portfolio" target="blank" className="flex items-center gap-1 hover:text-custom-orange hover:scale-105 transition-all duration-300 interactive"><FaGithub />GITHUB</a>
+          </div>
+          <div className="flex items-center gap-1">
+            <a href="https://www.instagram.com/poyuan__" target="blank" className="flex items-center gap-1 hover:text-custom-orange hover:scale-105 transition-all duration-300 interactive"> <FaInstagram />INSTAGRAM</a>
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-10 hidden md:flex items-center gap-4 text-xs tracking-widest opacity-60 text-custom-white">
-        <span>SCROLL TO EXPLORE</span>
-        <div className="w-16 h-[1px] bg-custom-black/30 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-custom-orange animate-[progress_2s_infinite]"></div>
-        </div>
+      <div className="w-full px-10 absolute bottom-20 flex items-center gap-4 text-xs tracking-widest text-custom-white">
+        <div ref={subtitleRef} className="w-full flex gap-3 md:w-3/5 lg:w-2/5 text-sm md:text-base font-light tracking-wide text-custom-white leading-relaxed">
+          <div className="w-16 mt-3 h-[1px] bg-custom-black/30 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-custom-orange animate-[progress_2s_infinite]"></div>
+          </div>
+          Hi! 我是柏元<br />
+          我喜歡接收新的知識，也願意投入學習，現階段目標轉職成前端工程師，未來會朝全端工程師邁進。</div>
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <a href="#about" aria-label="Scroll to next section" className="interactive">
+          <MdOutlineKeyboardDoubleArrowDown size={40} className="text-custom-orange/80 animate-bounce interactive" />
+        </a>
       </div>
     </section>
   );
