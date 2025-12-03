@@ -21,6 +21,8 @@ export const Contact: React.FC = () => {
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const ctx = gsap.context(() => {
 
       // Title Animation
