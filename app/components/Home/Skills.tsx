@@ -4,18 +4,13 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const skillSet = [
-  { name: "React / Next.js", level: 90 },
-  { name: "TypeScript", level: 85 },
-  { name: "HTML / CSS / Tailwind", level: 95 },
-  { name: "GSAP / Animations", level: 80 },
-  { name: "Git / GitHub", level: 85 },
-  { name: "Node.js / SQL", level: 70 },
-  { name: "跨部門溝通 (Communication)", level: 90 },
-  { name: "品質保證 (QA/Testing)", level: 95 },
-];
+import { SkillSet } from '../../../type/skillSet';
 
-export const Contact: React.FC = () => {
+interface SkillsProps {
+  skillSet: SkillSet[];
+}
+
+export const Skills: React.FC<SkillsProps> = ({ skillSet }) => {
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -94,16 +89,17 @@ export const Contact: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-32 pt-12 border-t border-white/10 flex flex-col items-center text-center">
-          <p className="text-custom-white mb-6 text-sm">歡迎與我聯繫</p>
+        <div className="mt-32 pt-12 border-t border-white/10 flex flex-col gap-5 items-center text-center">
+          <p className="text-custom-white mb-6 text-base">歡迎與我聯繫</p>
           <a
-            href="mailto:example@email.com"
-            className="text-2xl md:text-4xl font-serif hover:text-custom-orange transition-colors duration-300 interactive"
+            href="mailTo:poyuan510214@gmail.com"
+            className="text-2xl md:text-3xl font-serif hover:text-custom-orange transition-colors duration-300 interactive"
           >
             poyuan510214@gmail.com
-            <br />
-            0972096129
           </a>
+          <div className="text-2xl md:text-3xl font-serif hover:text-custom-orange transition-colors duration-300 interactive">
+            0972096129
+          </div>
         </div>
       </div>
     </section>
