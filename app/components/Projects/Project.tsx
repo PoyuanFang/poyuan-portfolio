@@ -28,7 +28,7 @@ export default function Project({ project }: { project: Project }) {
   const imageUrls = project.galleryImages?.map((image) => urlFor(image).url()) || []
 
   return (
-    <div className="relative min-h-screen text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
+    <div className="relative min-h-screen bg-products-bg text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
       {/* Background Elements */}
       <div className="noise-overlay" />
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
