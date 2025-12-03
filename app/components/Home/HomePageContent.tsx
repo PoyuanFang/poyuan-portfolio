@@ -23,8 +23,6 @@ export const HomePageContent: React.FC<HomePageContentProps> = ({
 }) => {
   return (
     <div className="relative min-h-screen text-custom-black font-sans overflow-hidden selection:bg-custom-orange selection:text-white">
-      {/* Global Grain Texture */}
-      <div className="noise-overlay" />
 
       {/* Ambient Background Light (Fixed behind content) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

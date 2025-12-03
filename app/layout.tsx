@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <body className="min-h-screen flex flex-col">
+      <div className="noise-overlay" />
         <Layout>
           {children}
         </Layout>

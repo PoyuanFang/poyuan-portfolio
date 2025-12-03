@@ -55,8 +55,6 @@ export const AllProjects: React.FC<ProjectListProps> = ({ projects }) => {
 
   return (
     <section ref={containerRef} className="w-full py-24 px-6 md:px-12 lg:px-24 bg-products-bg text-custom-black">
-      <div className="noise-overlay" />
-
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 text-center">
           <h1 className="text-4xl md:text-6xl font-serif mb-4">所有專案</h1>
