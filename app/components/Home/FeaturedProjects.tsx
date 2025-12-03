@@ -75,7 +75,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
             className="group flex flex-col md:flex-row gap-10 lg:gap-20 items-center md:even:flex-row-reverse"
           >
             {/* Image Container */}
-            <div className="w-full md:w-3/5 aspect-[16/10] overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-out border border-custom-black/5 shadow-lg">
+            <div className="w-full md:w-3/5 aspect-[16/10] overflow-hidden relative md:grayscale md:group-hover:grayscale-0 transition-all duration-700 ease-out border border-custom-black/5 shadow-lg">
               <img
                 src={urlFor(project.image).width(800).url()}
                 alt={project.title}
@@ -86,7 +86,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
             {/* Info */}
             <div className="project-info w-full md:w-2/5 space-y-6">
               <span className="text-custom-blue text-xs tracking-widest uppercase font-medium">{project.category}</span>
-              <h3 className="text-4xl md:text-5xl font-serif leading-none">{project.title}</h3>
+              <h3 className="text-xl md:text-4xl font-serif leading-none">{project.title}</h3>
               <p className="text-custom-gray text-sm leading-relaxed max-w-sm">
                 {project.description}
               </p>

@@ -50,7 +50,7 @@ export default function Project({ project }: { project: Project }) {
           {/* Header */}
           <header className="mb-12">
             <span className="text-custom-blue text-xs tracking-widest uppercase font-medium">{project.category}</span>
-            <h1 className="text-4xl md:text-6xl font-serif mt-2">{project.title}</h1>
+            <h1 className="text-3xl md:text-5xl font-serif mt-2">{project.title}</h1>
           </header>
 
           {/* Main Image */}
