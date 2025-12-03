@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 
 export const Hero: React.FC = () => {
@@ -47,28 +48,27 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden text-custom-black">
+    <section ref={containerRef} className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden text-custom-black bg-products-bg">
 
       {/* Animated Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          ref={bgImageRef}
-          src="/image/gradient_blue.png"
-          alt="Abstract background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0"></div>
-      </div>
+      <Image
+        ref={bgImageRef}
+        src="/image/gradient_blue.webp"
+        alt="Abstract background"
+        fill
+        sizes="100vw"
+        className="object-cover absolute inset-0 z-0"
+        priority
+      />
 
-      <div className="absolute inset-0 z-1">
-        <img
-          ref={circleRef}
-          src="/image/circle.png"
-          alt="circle animate"
-          className="w-[200px] h-[200px]"
-        />
-        <div className="absolute inset-0"></div>
-      </div>
+      <Image
+        ref={circleRef}
+        src="/image/circle.png"
+        alt="circle animate"
+        className="absolute inset-0 z-1"
+        width={200}
+        height={200}
+      />
 
       <div className="relative z-10 flex flex-col items-center px-4">
         <div>
