@@ -36,4 +36,17 @@ export default defineType({
       type: 'text',
     }),
   ],
+
+  //自訂列表預覽顯示
+  preview: {
+    select: {
+      role: 'role',
+    },
+    prepare(selection) {
+      const { role } = selection
+      return {
+        title: role,
+      }
+    },
+  },
 })

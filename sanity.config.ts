@@ -49,10 +49,21 @@ export default defineConfig({
             // --- 分隔線 ---
             S.divider(),
 
+            orderableDocumentListDeskItem({
+              type: 'experience', // 這裡要對應你的 schema name
+              title: '工作經歷',
+              icon: () => '💼',
+              S,
+              context,
+            }),
+
+            // --- 分隔線 ---
+            S.divider(),
+
             // --- 區塊: 其他所有未定義的內容 ---
             // 自動列出除了project 以外的其他 schema
             ...S.documentTypeListItems().filter(
-              (listItem) => !['project'].includes(listItem.getId() as string)
+              (listItem) => !['project', 'experience'].includes(listItem.getId() as string)
             ),
           ]),
     }),
