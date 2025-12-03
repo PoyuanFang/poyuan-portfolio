@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full px-10 absolute bottom-20 flex items-center gap-4 text-xs tracking-widest text-custom-white">
+      <div className="w-full px-10 absolute bottom-30 md:bottom-20 flex items-center gap-4 text-xs tracking-widest text-custom-white">
         <div ref={subtitleRef} className="w-full flex gap-3 md:w-3/5 lg:w-2/5 text-sm md:text-base font-light tracking-wide text-custom-white leading-relaxed">
           <div className="w-16 mt-3 h-[1px] bg-custom-black/30 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-custom-orange animate-[progress_2s_infinite]"></div>
@@ -105,7 +105,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute bottom-15 md:bottom-8 left-1/2 -translate-x-1/2 z-10">
         <a href="#about" aria-label="Scroll to next section" className="interactive">
           <MdOutlineKeyboardDoubleArrowDown size={40} className="text-custom-orange/80 animate-bounce interactive" />
         </a>
