@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
       </div>
       <div className="flex gap-3">
         <div className="flex items-center gap-1">
-          <a href="https://github.com/PoyuanFang/portfolio" target="blank" className="flex items-center gap-1 hover:text-white hover:scale-105 transition-colors interactive"><FaGithub />GITHUB</a>
+          <a href="https://github.com/PoyuanFang/poyuan-portfolio" target="blank" className="flex items-center gap-1 hover:text-white hover:scale-105 transition-colors interactive"><FaGithub />GITHUB</a>
         </div>
         <div className="flex items-center gap-1">
           <a href="https://www.instagram.com/poyuan__" target="blank" className="flex items-center gap-1 hover:text-white hover:scale-105 transition-colors interactive"> <FaInstagram />INSTAGRAM</a>

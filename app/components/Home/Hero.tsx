@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
         </div>
         <div className="w-full mt-5 flex justify-end gap-3">
           <div className="flex items-center gap-1">
-            <a href="https://github.com/PoyuanFang/portfolio" target="blank" className="flex items-center gap-1 hover:text-custom-orange hover:scale-105 transition-all duration-300 interactive"><FaGithub />GITHUB</a>
+            <a href="https://github.com/PoyuanFang/poyuan-portfolio" target="blank" className="flex items-center gap-1 hover:text-custom-orange hover:scale-105 transition-all duration-300 interactive"><FaGithub />GITHUB</a>
           </div>
           <div className="flex items-center gap-1">
             <a href="https://www.instagram.com/poyuan__" target="blank" className="flex items-center gap-1 hover:text-custom-orange hover:scale-105 transition-all duration-300 interactive"> <FaInstagram />INSTAGRAM</a>
