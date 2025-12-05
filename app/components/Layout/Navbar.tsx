@@ -4,6 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 
+import { IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+
 const NAV_ITEMS = [
   { label: 'ABOUT', targetId: 'about' },
   { label: 'EXPERIENCE', targetId: 'experience' },
@@ -107,7 +110,7 @@ export const Navbar: React.FC = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden text-xs tracking-widest interactive z-[70] relative hover:text-custom-orange transition-colors"
         >
-          {isMenuOpen ? 'CLOSE' : 'MENU'}
+          {isMenuOpen ? <IoClose size={32} /> : <IoMenu size={32} />}
         </button>
       </nav>
 
