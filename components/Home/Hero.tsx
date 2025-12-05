@@ -12,6 +12,7 @@ export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleLine1Ref = useRef<HTMLHeadingElement>(null);
   const titleLine2Ref = useRef<HTMLHeadingElement>(null);
+  const socialMediaRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const bgImageRef = useRef<HTMLImageElement>(null);
   const circleRef = useRef<HTMLImageElement>(null);
@@ -40,10 +41,16 @@ export const Hero: React.FC = () => {
         "start"
       );
 
-      tl.fromTo(subtitleRef.current,
+      tl.fromTo(socialMediaRef.current,
         { opacity: 0, x: -20 },
         { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
         "-=1"
+      );
+
+      tl.fromTo(subtitleRef.current,
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
+        "-=0.3"
       );
 
     }, containerRef);
@@ -85,7 +92,7 @@ export const Hero: React.FC = () => {
             Portfolio
           </h1>
         </div>
-        <div className="w-full mt-5 flex justify-end gap-3">
+        <div ref={socialMediaRef} className="w-full mt-5 flex justify-end gap-3">
           <div className="flex items-center gap-1">
             <a href="https://github.com/PoyuanFang/poyuan-portfolio" target="blank" className="flex items-center gap-1 hover:text-custom-orange hover:scale-105 transition-all duration-300 interactive"><FaGithub />GITHUB</a>
           </div>

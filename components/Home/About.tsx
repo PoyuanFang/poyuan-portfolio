@@ -44,7 +44,7 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="w-full py-32 px-6 md:px-24 bg-custom-navy text-custom-white min-h-screen flex flex-col justify-center">
+    <section id="about" ref={sectionRef} className="w-full py-32 px-6 md:px-24 bg-custom-gradient-navyToBlack text-custom-white min-h-screen flex flex-col justify-center">
       <div className="max-w-7xl mx-auto w-full">
         <span className="block text-xs text-custom-orange tracking-[0.2em] mb-12 uppercase font-medium">Cross-Domain Thinking</span>
         <div ref={textRef} className="opacity-0 translate-y-12">
