@@ -1,4 +1,4 @@
-import { client } from '../../sanity/client'
+import { client } from '@/sanity/client'
 import { AllProjects } from '@/components/Projects/AllProjects'
 
 // 定義從 Sanity API 回傳的資料類型

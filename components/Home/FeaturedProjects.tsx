@@ -7,8 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import { ArrowUpRight } from 'lucide-react';
 
 import { FaArrowRight } from "react-icons/fa";
-import { urlFor } from '../../../sanity/client';
-import { Project } from '../../../type/project'; // 引入共享介面
+import { urlFor } from '@/sanity/client';
+import { Project } from '@/type/project'; // 引入共享介面
 
 interface FeaturedProjectsProps {
   projects: Project[];

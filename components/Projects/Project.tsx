@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { CustomCursor } from '@/components/Home/CustomCursor'
 import ProjectImageCarousel from '@/components/Projects/ProjectImageCarousel'
 import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import { urlFor } from '../../../sanity/client'
+import { urlFor } from '@/sanity/client'
 
 interface Project {
   _id: string

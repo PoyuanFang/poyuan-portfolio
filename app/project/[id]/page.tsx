@@ -1,5 +1,5 @@
 import Project from '@/components/Projects/Project'
-import { client } from '../../../sanity/client'
+import { client } from '@/sanity/client'
 
 interface ProjectData {
   _id: string

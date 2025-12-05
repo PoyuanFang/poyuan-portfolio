@@ -9,9 +9,9 @@ import { ExperienceComponent } from './Experience'
 import { FeaturedProjects } from './FeaturedProjects'
 import { Skills } from './Skills'
 import { CustomCursor } from './CustomCursor'
-import { Project } from '../../../type/project'
-import { Experience } from '../../../type/experience'
-import { SkillSet } from '../../../type/skillSet'
+import { Project } from '@/type/project'
+import { Experience } from '@/type/experience'
+import { SkillSet } from '@/type/skillSet'
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)

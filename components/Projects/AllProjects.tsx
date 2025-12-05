@@ -5,8 +5,7 @@ import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CustomCursor } from '@/components/Home/CustomCursor'
-import { FaArrowRight } from "react-icons/fa";
-import { urlFor } from '../../../sanity/client';
+import { urlFor } from '@/sanity/client';
 
 interface Project {
   _id: string

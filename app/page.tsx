@@ -1,8 +1,8 @@
 
-import { client } from '../sanity/client'
-import { Project } from '../type/project'
-import { Experience } from '../type/experience'
-import { SkillSet } from '../type/skillSet'
+import { client } from '@/sanity/client'
+import { Project } from '@/type/project'
+import { Experience } from '@/type/experience'
+import { SkillSet } from '@/type/skillSet'
 import { HomePageContent } from '@/components/Home/HomePageContent'
 
 export default async function Home() {

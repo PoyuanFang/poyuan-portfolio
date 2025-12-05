@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Layout } from "./components/Layout/Layout";
-import { BackToTopButton } from "./components/Layout/BackToTopButton";
+import { Layout } from "@/components/Layout/Layout";
+import { BackToTopButton } from "@/components/Layout/BackToTopButton";
 
 export const metadata: Metadata = {
   title: "Poyuan",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <body className="min-h-screen flex flex-col">
-      <div className="noise-overlay" />
+        <div className="noise-overlay" />
         <Layout>
           {children}
         </Layout>
