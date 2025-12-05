@@ -23,6 +23,8 @@
   --color-hero-bg: #d1cfd4;
   --color-package-bg: #dddcdf;
   --color-products-bg: #e3e4e6;
+
+  --background-image-custom-gradient-navyToBlack: linear-gradient(to bottom right, var(--color-custom-navy) 0%, var(--color-custom-black) 50%, var(--color-custom-black) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
