@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: 'EXPERIENCE', targetId: 'experience' },
   { label: 'WORK', targetId: 'work' },
   { label: 'SKILLS', targetId: 'skills' },
+  { label: 'CONTACT', targetId: 'contact' },
 ];
 
 export const Navbar: React.FC = () => {

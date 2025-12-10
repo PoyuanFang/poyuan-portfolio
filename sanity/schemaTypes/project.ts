@@ -25,6 +25,7 @@ export default defineType({
       title: '專案截圖',
       type: 'image',
       options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'featured',
@@ -41,7 +42,11 @@ export default defineType({
     defineField({
       name: 'longDescription',
       title: '專案詳述 (長)',
-      type: 'text',
+      type: 'array',
+      of: [
+        // 標準文字區塊 (H1, H2, Bold, Italic, Lists...)
+        { type: 'block' },
+      ],
     }),
     defineField({
       name: 'category',
@@ -50,10 +55,9 @@ export default defineType({
       // 加入下拉選單
       options: {
         list: [
-          { title: '前端開發 (Frontend)', value: 'frontend' },
-          { title: '後端開發 (Backend)', value: 'backend' },
-          { title: '全端開發 (Fullstack)', value: 'fullstack' },
-          { title: 'UI/UX 設計', value: 'design' },
+          { title: 'React(Next.js)專案', value: 'React(Next.js)' },
+          { title: 'Javascript互動', value: 'Javascript' },
+          { title: '靜態網頁', value: 'static website' },
         ],
       },
     }),
