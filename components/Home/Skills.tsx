@@ -89,7 +89,7 @@ export const Skills: React.FC<SkillsProps> = ({ skillSet }) => {
           ))}
         </div>
 
-        <div className="mt-32 pt-12 border-t border-white/10 flex flex-col gap-5 items-center text-center">
+        <div id='contact' className="mt-32 pt-12 border-t border-white/10 flex flex-col gap-5 items-center text-center">
           <p className="text-custom-white mb-6 text-base">歡迎與我聯繫</p>
           <a
             href="mailTo:poyuan510214@gmail.com"
