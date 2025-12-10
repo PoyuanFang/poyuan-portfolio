@@ -55,10 +55,9 @@ export default defineType({
       // 加入下拉選單
       options: {
         list: [
-          { title: '前端開發 (Frontend)', value: 'frontend' },
-          { title: '後端開發 (Backend)', value: 'backend' },
-          { title: '全端開發 (Fullstack)', value: 'fullstack' },
-          { title: 'UI/UX 設計', value: 'design' },
+          { title: 'React(Next.js)專案', value: 'React(Next.js)' },
+          { title: 'Javascript互動', value: 'Javascript' },
+          { title: '靜態網頁', value: 'static website' },
         ],
       },
     }),
