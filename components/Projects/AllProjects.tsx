@@ -7,17 +7,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CustomCursor } from '@/components/Home/CustomCursor'
 import { urlFor } from '@/sanity/client';
 
-interface Project {
-  _id: string
-  title: string
-  image: any
-  description: string
-  link: string
-  category: string
-}
+import { Project as ProjectType } from '@/type/project'
 
 interface ProjectListProps {
-  projects: Project[]
+  projects: ProjectType[]
 }
 
 export const AllProjects: React.FC<ProjectListProps> = ({ projects }) => {
@@ -67,14 +60,14 @@ export const AllProjects: React.FC<ProjectListProps> = ({ projects }) => {
             <div
               key={project._id}
               ref={el => { projectRefs.current[index] = el; }}
-              className="group flex flex-col gap-6 cursor-pointer"
+              className="group flex flex-col gap-6 cursor-pointer interactive"
               onClick={() => router.push(`/project/${project._id}`)}
             >
               {/* Image Container */}
               <div className="aspect-[16/10] overflow-hidden relative border border-custom-black/5 shadow-lg">
                 {project.image && (
                   <img
-                    src={urlFor(project.image).width(800).url()}
+                    src={urlFor(project?.image).width(800).url()}
                     alt={project.title}
                     className="w-full h-full object-cover will-change-transform group-hover:scale-105 transition-transform duration-700 ease-out"
                   />

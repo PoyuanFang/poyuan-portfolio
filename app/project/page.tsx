@@ -1,17 +1,8 @@
 import { client } from '@/sanity/client'
-import { AllProjects } from '@/components/Projects/AllProjects'
 
-// 定義從 Sanity API 回傳的資料類型
-interface Project {
-  _id: string
-  title: string
-  image: any
-  description: string
-  longDescription: string
-  link: string
-  skills: string
-  category: string
-}
+import { Project as ProjectType } from '@/type/project'
+
+import { AllProjects } from '@/components/Projects/AllProjects'
 
 // 將頁面元件改為 async function，在伺服器端使用 await
 export default async function ProjectPage() {
@@ -24,7 +15,7 @@ export default async function ProjectPage() {
   // 2. 使用 client.fetch 來執行查詢
   //    回傳的資料結構會是 { projects: Project[]}
   const { projects } = await client.fetch<{
-    projects: Project[]
+    projects: ProjectType[]
   }>(query)
 
   return <AllProjects projects={projects} />

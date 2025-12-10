@@ -3,31 +3,17 @@
 import { useRouter } from 'next/navigation'
 
 import { PortableText } from '@portabletext/react'
-import { PortableTextBlock } from 'sanity'
 import PortableTextComponents from './PortableTextComponents'
 import { urlFor } from '@/sanity/client'
+
+import { Project as ProjectType } from '@/type/project'
 
 import { CustomCursor } from '@/components/Home/CustomCursor'
 import ProjectImageCarousel from '@/components/Projects/ProjectImageCarousel'
 
 import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
-interface Project {
-  _id: string
-  title: string
-  image: any
-  description: string
-  longDescription: PortableTextBlock[];
-  link: string
-  skills: string
-  category: string
-  galleryImages?: any[]
-  techStack?: string[]
-  liveUrl?: string
-  repoUrl?: string
-}
-
-export default function Project({ project }: { project: Project }) {
+export default function Project({ project }: { project: ProjectType }) {
   const router = useRouter()
 
   const imageUrls = project.galleryImages?.map((image) => urlFor(image).url()) || []

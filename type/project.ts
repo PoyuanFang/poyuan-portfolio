@@ -1,9 +1,11 @@
+import { PortableTextBlock } from 'sanity'
+
 export interface Project {
   _id: string;
   title: string;
   image: any; // Sanity image asset reference
   description: string; // Short description
-  longDescription: string; // Long description
+  longDescription: PortableTextBlock[]; // Long description
   link?: string; // General project link (URL)
   skills: string; // Comma-separated string of skills
   category: string;
