@@ -1,18 +1,23 @@
-
 'use client'
 
 import { useRouter } from 'next/navigation'
+
+import { PortableText } from '@portabletext/react'
+import { PortableTextBlock } from 'sanity'
+import PortableTextComponents from './PortableTextComponents'
+import { urlFor } from '@/sanity/client'
+
 import { CustomCursor } from '@/components/Home/CustomCursor'
 import ProjectImageCarousel from '@/components/Projects/ProjectImageCarousel'
+
 import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import { urlFor } from '@/sanity/client'
 
 interface Project {
   _id: string
   title: string
   image: any
   description: string
-  longDescription: string
+  longDescription: PortableTextBlock[];
   link: string
   skills: string
   category: string
@@ -64,7 +69,10 @@ export default function Project({ project }: { project: Project }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-6">
               <h2 className="text-2xl font-serif">關於專案</h2>
-              <p className="text-custom-gray leading-relaxed whitespace-pre-line">{project.longDescription ? project.longDescription : project.description}</p>
+              <div className="text-custom-gray leading-relaxed whitespace-pre-line">
+                {project.longDescription ?
+                  <PortableText value={project.longDescription} components={PortableTextComponents} />
+                  : project.description}</div>
             </div>
             <div className="space-y-6">
               <h2 className="text-2xl font-serif">使用技術</h2>
@@ -72,7 +80,7 @@ export default function Project({ project }: { project: Project }) {
                 {project.techStack?.map(tech => <li key={tech} className="text-custom-gray">{tech}</li>)}
               </ul>
               <div className="flex items-center gap-4 pt-4">
-                {project.liveUrl && (<a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">URL<FaExternalLinkAlt /></a>)}
+                {project.liveUrl && (<a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">LIVE URL<FaExternalLinkAlt /></a>)}
                 {project.repoUrl && (<a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors interactive">GitHub <FaGithub /></a>)}
               </div>
             </div>

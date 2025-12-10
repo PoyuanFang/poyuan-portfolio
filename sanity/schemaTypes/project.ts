@@ -25,6 +25,7 @@ export default defineType({
       title: '專案截圖',
       type: 'image',
       options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'featured',
@@ -41,7 +42,11 @@ export default defineType({
     defineField({
       name: 'longDescription',
       title: '專案詳述 (長)',
-      type: 'text',
+      type: 'array',
+      of: [
+        // 標準文字區塊 (H1, H2, Bold, Italic, Lists...)
+        { type: 'block' },
+      ],
     }),
     defineField({
       name: 'category',
