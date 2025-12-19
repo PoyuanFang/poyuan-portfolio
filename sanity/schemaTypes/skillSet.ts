@@ -15,27 +15,57 @@ export default defineType({
     // 注意：這裡的 type 必須跟你的 document name 一樣
     orderRankField({ type: 'skillSet' }),
     defineField({
-      name: 'name',
-      title: '名稱',
+      name: 'title',
+      title: '技能類別',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'level',
-      title: '熟練度',
-      type: 'number',
+      name: 'skills',
+      title: '技能列表',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: '技能名稱',
+              type: 'string',
+            }),
+            defineField({
+              name: 'level',
+              title: '熟練度',
+              type: 'number',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              level: 'level',
+            },
+            prepare(selection) {
+              const { title, level } = selection
+              return {
+                title,
+                subtitle: `熟練度: ${level}`,
+              }
+            },
+          },
+        },
+      ],
     }),
   ],
 
   //自訂列表預覽顯示
   preview: {
     select: {
-      name: 'name',
+      title: 'title',
     },
     prepare(selection) {
-      const { name } = selection
+      const { title } = selection
       return {
-        title: name,
+        title: title,
       }
     },
   },
