@@ -13,7 +13,6 @@ interface SkillsProps {
 export const Skills: React.FC<SkillsProps> = ({ skillSet }) => {
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const barsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -33,8 +32,9 @@ export const Skills: React.FC<SkillsProps> = ({ skillSet }) => {
       });
 
       // Bars Animation
-      barsRef.current.forEach((bar, index) => {
-        if (!bar) return;
+      // 用 class 選擇器來抓取所有技能條，適應巢狀結構
+      const bars = gsap.utils.toArray('.skill-bar') as HTMLElement[];
+      bars.forEach((bar) => {
         const fill = bar.querySelector('.progress-fill');
         const percent = bar.getAttribute('data-percent');
 
@@ -69,21 +69,27 @@ export const Skills: React.FC<SkillsProps> = ({ skillSet }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
-          {skillSet.map((skill, index) => (
-            <div
-              key={skill.name}
-              ref={el => { barsRef.current[index] = el; }}
-              data-percent={skill.level}
-              className="group"
-            >
-              <div className="flex justify-between items-end mb-3 text-sm tracking-widest uppercase font-medium">
-                <span className="group-hover:text-custom-orange transition-colors duration-300">{skill.name}</span>
-                <span className="font-mono text-custom-gray">{skill.level}%</span>
-              </div>
+        <div className="flex flex-col gap-16">
+          {skillSet.map((category) => (
+            <div key={category._id} className="w-full">
+              <h3 className="text-2xl font-serif mb-8 text-custom-orange/80">{category.title}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+                {category.skills?.map((skill) => (
+                  <div
+                    key={skill._key || skill.name}
+                    data-percent={skill.level}
+                    className="group skill-bar" // 加入 skill-bar class 供 GSAP 動畫使用
+                  >
+                    <div className="flex justify-between items-end mb-3 text-sm tracking-widest uppercase font-medium">
+                      <span className="group-hover:text-custom-orange transition-colors duration-300">{skill.name}</span>
+                      <span className="font-mono text-custom-gray">{skill.level}%</span>
+                    </div>
 
-              <div className="w-full h-[2px] bg-white/10 relative overflow-hidden">
-                <div className="progress-fill absolute top-0 left-0 h-full bg-custom-orange w-0"></div>
+                    <div className="w-full h-[2px] bg-white/10 relative overflow-hidden">
+                      <div className="progress-fill absolute top-0 left-0 h-full bg-custom-orange w-0"></div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
