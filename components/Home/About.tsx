@@ -49,9 +49,9 @@ export const About: React.FC = () => {
         <span className="block text-xs text-custom-orange tracking-[0.2em] mb-12 uppercase font-medium">Cross-Domain Thinking</span>
         <div ref={textRef} className="opacity-0 translate-y-12">
           <p className="text-xl md:text-2xl leading-[1.3] font-light text-custom-white/90 max-w-6xl">
-            <span ref={highlightRef} className="text-xl leading-loose font-semibold lg:text-4xl text-white transition-colors duration-300">-將企劃與品保轉化為工程師優勢：</span>
+            <span ref={highlightRef} className="text-xl leading-loose font-semibold lg:text-4xl text-white transition-colors duration-300">-將行銷與美編轉化為工程師優勢：</span>
             <br />
-            我的工作經歷雖然多元，但都為我的工程師職涯打下了獨特的基礎
+            我的工作經歷雖然多元，但都為工程師職涯打下了獨特的基礎
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-24 border-t border-white/10 pt-12">
             <div>
@@ -61,15 +61,15 @@ export const About: React.FC = () => {
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-medium text-custom-white mb-4">品質檢驗</h3>
+              <h3 className="text-lg font-medium text-custom-white mb-4">美編排版</h3>
               <p className="text-sm text-custom-white/60 leading-relaxed">
-                QA 工程師的背景讓我對程式碼品質有著嚴格堅持，視開發為一場追求完美無 Bug 的旅程
+                擁有整合素材與文案的經驗，讓我具備敏銳的內容佈局能力，專注於透過程式碼實現最佳化的使用者體驗。
               </p>
             </div>
             <div>
               <h3 className="text-lg font-medium text-custom-white mb-4">網頁開發</h3>
               <p className="text-sm text-custom-white/60 leading-relaxed">
-                學習運用 Next.js、TypeScript 與 Git 協作流程，建構出高效能、安全且易於維護擴充的現代化網頁
+                運用 Next.js、TypeScript 與 Git 協作流程，建構出高效能、安全且易於維護擴充的現代化網頁。
               </p>
             </div>
           </div>

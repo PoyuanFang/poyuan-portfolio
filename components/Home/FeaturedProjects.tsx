@@ -87,7 +87,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
             <div className="project-info w-full md:w-2/5 space-y-6">
               <span className="text-custom-blue text-xs tracking-widest uppercase font-medium">{project.category}</span>
               <h3 className="text-xl md:text-4xl font-serif leading-none">{project.title}</h3>
-              <p className="text-custom-gray text-sm leading-relaxed max-w-sm">
+              <p className="text-custom-gray text-base lg:text-lg leading-relaxed md:max-w-sm">
                 {project.description}
               </p>
               <button
@@ -95,7 +95,6 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
                 className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
                 View Details
                 <FaArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
-                {/* <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /> */}
               </button>
             </div>
           </div>
