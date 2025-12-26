@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import { ArrowUpRight } from 'lucide-react';
 
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaExternalLinkAlt } from "react-icons/fa";
 import { urlFor } from '@/sanity/client';
 import { Project } from '@/type/project'; // 引入共享介面
 
@@ -90,12 +90,23 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
               <p className="text-custom-gray text-base lg:text-lg leading-relaxed md:max-w-sm">
                 {project.description}
               </p>
-              <button
-                onClick={() => router.push(`/project/${project._id}`)}
-                className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
-                View Details
-                <FaArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
-              </button>
+              <div className="flex items-center gap-6">
+                <button
+                  onClick={() => router.push(`/project/${project._id}`)}
+                  className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
+                  View Details
+                  <FaArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
+                </button>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-custom-orange transition-colors group/btn interactive">
+                    LIVE URL
+                    <FaExternalLinkAlt size={12} className="group-hover/btn:translate-x-1 transition-transform" />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}
