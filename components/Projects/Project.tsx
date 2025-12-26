@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 
 import { PortableText } from '@portabletext/react'
-import PortableTextComponents from './PortableTextComponents'
+import PortableTextComponents from '@/components/Utils/PortableTextComponents'
 import { urlFor } from '@/sanity/client'
 
 import { Project as ProjectType } from '@/type/project'

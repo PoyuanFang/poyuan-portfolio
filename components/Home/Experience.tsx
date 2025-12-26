@@ -5,6 +5,9 @@ import { Experience } from '@/type/experience';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { IoIosArrowDown } from "react-icons/io";
+
+import { PortableText } from '@portabletext/react'
+import PortableTextComponents from '@/components/Utils/PortableTextComponents'
 interface ExperienceComponentProps {
   experience: Experience[];
 }
@@ -94,7 +97,7 @@ export const ExperienceComponent: React.FC<ExperienceComponentProps> = ({ experi
             <div className="accordion-content h-0 overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 w-full">
                 <div className="md:col-start-4 md:col-span-9 pb-8 text-custom-white/70 text-sm leading-relaxed">
-                  {item.description}
+                  <PortableText value={item.description} components={PortableTextComponents} />
                 </div>
               </div>
             </div>

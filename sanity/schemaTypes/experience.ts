@@ -33,7 +33,10 @@ export default defineType({
     defineField({
       name: 'description',
       title: '工作內容描述',
-      type: 'text',
+      type: 'array',
+      of: [
+        { type: 'block' },
+      ],
     }),
   ],
 
