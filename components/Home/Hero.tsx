@@ -107,8 +107,8 @@ export const Hero: React.FC = () => {
           <div className="w-16 mt-3 h-[1px] bg-custom-black/30 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-custom-orange animate-[progress_2s_infinite]"></div>
           </div>
-          Hi! 我是柏元<br />
-          我喜歡接收新的知識，也願意投入學習，現階段目標轉職成前端工程師，未來會朝全端工程師邁進。</div>
+          Hi! 我是柏元，具備跨域溝通力的前端工程師。<br />
+          擁有行銷企劃與美編背景，結合現代化前端技術，打造兼具視覺美感與高效能的沈浸式網頁體驗。</div>
       </div>
 
       {/* Scroll Down Indicator */}
